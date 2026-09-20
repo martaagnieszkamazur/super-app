@@ -1,0 +1,25 @@
+<resources>
+	<string name="steps_counter">Steps Counter</string>
+	<string name="test">Test</string>
+	<string name="main">Strona główna</string>
+	<string name="journal">Dziennik</string>
+	<string name="profile">Profil</string>
+	<string name="add_steps">Dodaj kroki</string>
+	<string name="go_back">Powróć</string>
+	<string name="save">Zapisz</string>
+	<string name="steps_count">Liczba kroków</string>
+	<string name="select_date">Wybierz datę</string>
+	<string name="steps_sum">Suma kroków</string>
+	<string name="calories_sum">Suma kalorii</string>
+	<string name="km_sum">Suma km</string>
+	<string name="cancel">Anuluj</string>
+	<string name="steps">kroków</string>
+	<string name="sex">płeć</string>
+	<string name="woman">Kobieta</string>
+	<string name="man">Mężczyzna</string>
+	<string name="set_your_goal">Ustaw swój cel</string>
+	<string name="kg">kg</string>
+	<string name="height">Wzrost</string>
+	<string name="centimeters">cm</string>
+	<string name="weight">Waga</string>
+</resources>
