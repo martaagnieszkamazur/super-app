@@ -9,8 +9,6 @@ import com.martamazurkozlowska.superapp.data.profile.HeightRepository
 import com.martamazurkozlowska.superapp.data.profile.PersonalGoalRepository
 import com.martamazurkozlowska.superapp.data.profile.WeightRepository
 import com.martamazurkozlowska.superapp.ui.components.sexitem.GenderUiModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -39,7 +37,7 @@ class ProfileViewModel(
             }
         }
 
-        viewModelScope.launch(Dispatchers.Main) {
+        viewModelScope.launch {
             personalGoalRepository.getPersonalGoalInKilos().collect {
                 println("goal $it")
                 personalGoalTextState.setTextAndPlaceCursorAtEnd(text = it.toString())

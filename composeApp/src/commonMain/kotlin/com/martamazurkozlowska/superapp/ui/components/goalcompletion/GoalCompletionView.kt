@@ -1,22 +1,29 @@
 package com.martamazurkozlowska.superapp.ui.components.goalcompletion
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.TextAutoSize
+import androidx.compose.foundation.text.TextAutoSizeDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.martamazurkozlowska.superapp.ui.theme.AppColors
+import com.martamazurkozlowska.superapp.ui.theme.AppTheme
 import com.martamazurkozlowska.superapp.ui.theme.AppTypography
+import org.jetbrains.compose.resources.stringResource
+import superapp.composeapp.generated.resources.Res
+import superapp.composeapp.generated.resources.steps_done
 
 @Composable
 fun GoalCompletionView(
@@ -29,6 +36,24 @@ fun GoalCompletionView(
         modifier = modifier
             .fillMaxWidth()
     ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(24.dp)
+        ) {
+            Text(
+                text = stepsCompleted.toString(),
+                style = AppTypography.goalCount,
+                autoSize = TextAutoSize.StepBased(maxFontSize = 35.sp),
+                color = AppColors.bluePrimary,
+            )
+
+            Text(
+                text = stringResource(Res.string.steps_done).uppercase(),
+                style = AppTypography.bodySmallRegular,
+                color = AppColors.olive300,
+            )
+        }
+
         CircularProgressIndicator(
             progress = { stepsCompleted.toFloat() / stepsGoal },
             strokeWidth = 20.dp,
@@ -36,13 +61,6 @@ fun GoalCompletionView(
             gapSize = (-20).dp,
             modifier = Modifier
                 .size(240.dp)
-        )
-
-        Text(
-            text = stepsCompleted.toString(),
-            style = AppTypography.h1Bold,
-            color = AppColors.bluePrimary,
-            modifier = Modifier.padding(24.dp)
         )
     }
 }
@@ -54,7 +72,7 @@ private fun Color.colorWithBrush(): Brush {
 
 @Preview
 @Composable
-private fun GoalCompletionViewPreview() {
+private fun GoalCompletionViewPreview() = AppTheme {
     GoalCompletionView(
         stepsGoal = 200000,
         stepsCompleted = 40000

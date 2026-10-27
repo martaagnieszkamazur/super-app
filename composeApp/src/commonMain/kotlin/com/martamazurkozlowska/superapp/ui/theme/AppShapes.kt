@@ -10,4 +10,5 @@ object AppShapes {
     val textField = RoundedCornerShape(12.dp)
     val item = RoundedCornerShape(12.dp)
     val circle = CircleShape
+    val button = RoundedCornerShape(12.dp)
 }

@@ -22,4 +22,21 @@
 	<string name="height">Wzrost</string>
 	<string name="centimeters">cm</string>
 	<string name="weight">Waga</string>
+	<string name="steps_done">Wykonane kroki</string>
+	<string name="nutri_pulse">Nutri Pulse</string>
+	<string name="add_meal">Dodaj posiłek</string>
+	<string name="add_ingredient">Dodaj składnik</string>
+	<string name="save_in_my_library">Zapisz w mojej bibliotece</string>
+	<string name="create_new_ingredient">Kreator nowego składnika</string>
+	<string name="put_nutrients_values">Wprowadź wartości odżywcze</string>
+	<string name="ingredient_name">Nazwa składnika</string>
+	<string name="main_macros">Główne makroskładniki</string>
+	<string name="calories">Kalorie</string>
+	<string name="protein">Białko</string>
+	<string name="carbohydrates">Węglowodany</string>
+	<string name="fats">Tłuszcze</string>
+	<string name="ingredients_librabry">Biblioteka składników</string>
+	<string name="search_for_ingredient">Przeszukuj zapisane składniki</string>
+	<string name="grams">g</string>
+	<string name="kcal">kcal</string>
 </resources>

@@ -6,10 +6,12 @@ import com.martamazurkozlowska.superapp.ui.view.main.MainView
 @Composable
 fun MainScreen(
     onStepsCounterAppClick: () -> Unit,
+    onNutriPulseAppClick: () -> Unit,
     onTestClick: () -> Unit,
 ) {
     MainView(
         onStepsCounterAppClick = onStepsCounterAppClick,
+        onNutriPulseAppClick = onNutriPulseAppClick,
         onTestClick = onTestClick,
     )
 }

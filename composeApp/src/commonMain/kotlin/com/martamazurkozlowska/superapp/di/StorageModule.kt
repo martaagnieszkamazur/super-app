@@ -5,6 +5,7 @@ import com.martamazurkozlowska.superapp.storage.HeightStorageManager
 import com.martamazurkozlowska.superapp.storage.PersonalGoalStorageManager
 import com.martamazurkozlowska.superapp.storage.StepsStorageManager
 import com.martamazurkozlowska.superapp.storage.WeightStorageManager
+import com.martamazurkozlowska.superapp.storage.nutripulse.IngredientsStorageManager
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
@@ -17,4 +18,5 @@ val storageModule = module {
     singleOf(::PersonalGoalStorageManager)
     singleOf(::HeightStorageManager)
     singleOf(::WeightStorageManager)
+    singleOf(::IngredientsStorageManager)
 }

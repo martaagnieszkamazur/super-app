@@ -26,9 +26,12 @@ data class Typography(
     val bodyMediumBold: TextStyle = TextStyle(),
     val bodyMediumRegular: TextStyle = TextStyle(),
     val bodySmallLight: TextStyle = TextStyle(),
+    val bodySmallRegular: TextStyle = TextStyle(),
     val bodySmallBold: TextStyle = TextStyle(),
     val primaryButton: TextStyle = TextStyle(),
     val navigationItem: TextStyle = TextStyle(),
+    val nutriPulseNavigationItem: TextStyle = TextStyle(),
+    val goalCount: TextStyle = TextStyle(),
 )
 
 @Composable
@@ -96,8 +99,16 @@ fun createTypography(): Typography {
             color = AppColors.text,
             fontFamily = lexendFontFamily,
             fontWeight = FontWeight.Light,
-            fontSize = 12.sp,
-            lineHeight = 18.sp,
+            fontSize = 14.sp,
+            lineHeight = 20.sp,
+            letterSpacing = 0.sp,
+        ),
+        bodySmallRegular = TextStyle(
+            color = AppColors.text,
+            fontFamily = lexendFontFamily,
+            fontWeight = FontWeight.Normal,
+            fontSize = 14.sp,
+            lineHeight = 20.sp,
             letterSpacing = 0.sp,
         ),
         bodySmallBold = TextStyle(
@@ -122,6 +133,22 @@ fun createTypography(): Typography {
             fontWeight = FontWeight.Normal,
             fontSize = 12.sp,
             lineHeight = 18.sp,
+            letterSpacing = 0.sp,
+        ),
+        nutriPulseNavigationItem = TextStyle(
+            color = AppColors.lime600,
+            fontFamily = lexendFontFamily,
+            fontWeight = FontWeight.Normal,
+            fontSize = 8.sp,
+            lineHeight = 10.sp,
+            letterSpacing = 0.sp,
+        ),
+        goalCount = TextStyle(
+            color = AppColors.text,
+            fontFamily = lexendFontFamily,
+            fontWeight = FontWeight.Black,
+            fontSize = 50.sp,
+            lineHeight = 60.sp,
             letterSpacing = 0.sp,
         ),
     )

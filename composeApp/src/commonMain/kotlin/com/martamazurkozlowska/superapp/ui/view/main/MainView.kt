@@ -20,6 +20,7 @@ import com.martamazurkozlowska.superapp.ui.theme.SuperAppsUiModel
 @Composable
 fun MainView(
     onStepsCounterAppClick: () -> Unit,
+    onNutriPulseAppClick: () -> Unit,
     onTestClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -50,6 +51,15 @@ fun MainView(
             )
 
             PrimaryButton(
+                appUiModel = SuperAppsUiModel.NutriPulse,
+                onClick = onNutriPulseAppClick,
+            )
+
+            Spacer(
+                modifier = Modifier.height(12.dp)
+            )
+
+            PrimaryButton(
                 appUiModel = SuperAppsUiModel.Test,
                 onClick = onTestClick,
             )
@@ -63,6 +73,7 @@ fun MainView(
 private fun MainViewPreview() = AppTheme {
     MainView(
         onStepsCounterAppClick = {},
+        onNutriPulseAppClick = {},
         onTestClick = {},
     )
 }

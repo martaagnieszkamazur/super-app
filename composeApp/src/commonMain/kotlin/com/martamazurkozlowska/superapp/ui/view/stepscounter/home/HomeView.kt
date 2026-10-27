@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.martamazurkozlowska.superapp.ui.components.buttons.StepsCounterPrimaryButton
+import com.martamazurkozlowska.superapp.ui.components.goalcompletion.GoalCompletionView
 import com.martamazurkozlowska.superapp.ui.components.stepssummary.StepsSummaryItemUiModel
 import com.martamazurkozlowska.superapp.ui.components.stepssummary.StepsSummaryItemView
 import com.martamazurkozlowska.superapp.ui.theme.AppColors
@@ -30,6 +31,7 @@ import superapp.composeapp.generated.resources.steps_sum
 
 @Composable
 fun HomeView(
+    stepsGoal: Int,
     stepsSumValue: String,
     caloriesSumValue: String,
     kilometersSumValue: String,
@@ -42,6 +44,12 @@ fun HomeView(
             .background(AppColors.background)
             .padding(16.dp)
     ) {
+        GoalCompletionView(
+            stepsGoal = stepsGoal,
+            stepsCompleted = stepsSumValue.toInt(),
+            modifier = Modifier.padding(vertical = 48.dp)
+            )
+
         StepsSummaryItemView(
             StepsSummaryItemUiModel(
                 itemName = Res.string.steps_sum,
@@ -104,6 +112,7 @@ fun HomeView(
 @Composable
 private fun HomeViewPreview() = AppTheme {
     HomeView(
+        stepsGoal = 200000,
         stepsSumValue = "2000",
         caloriesSumValue = "750",
         kilometersSumValue = "6.4",

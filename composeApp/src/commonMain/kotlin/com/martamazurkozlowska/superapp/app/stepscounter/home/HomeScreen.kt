@@ -14,6 +14,7 @@ fun HomeScreen(
     val stepsSumValue by viewModel.totalStepsFlow.collectAsStateWithLifecycle()
 
     HomeView(
+        stepsGoal = 200000,
         stepsSumValue = stepsSumValue.toString(),
         caloriesSumValue = "",
         kilometersSumValue = "",
