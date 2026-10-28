@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.martamazurkozlowska.superapp.data.profile.GenderRepository
 import com.martamazurkozlowska.superapp.data.profile.PersonalGoalRepository
 import com.martamazurkozlowska.superapp.data.stepslist.StepsListRepository
+import com.martamazurkozlowska.superapp.ui.components.sexitem.GenderUiModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -24,11 +25,28 @@ class HomeViewModel(
     private val personalGoal: MutableStateFlow<Int> = MutableStateFlow(0)
     val personalGoalFlow = personalGoal.asStateFlow()
 
+    private val gender: MutableStateFlow<GenderUiModel> = MutableStateFlow(GenderUiModel.Female)
+    val genderFlow = gender.asStateFlow()
+
+    private val kilometers = MutableStateFlow<Float>(0.0f)
+    val kilometersFlow = kilometers.asStateFlow()
+
     init {
         viewModelScope.launch {
             repository.getStepsList().collect { stepsList ->
                 totalSteps.value = stepsList.sumOf { it.stepsCount }
             }
         }
+
+        viewModelScope.launch {
+            totalStepsFlow.collect {
+                kilometers.value = getKilometersSum(totalSteps = it, gender = genderFlow.value)
+            }
+        }
+    }
+
+    private fun getKilometersSum(totalSteps: Int, gender: GenderUiModel): Float {
+        val stepLength = if (gender == GenderUiModel.Female) 66 else 80
+        return totalSteps * stepLength * 0.00001f
     }
 }
