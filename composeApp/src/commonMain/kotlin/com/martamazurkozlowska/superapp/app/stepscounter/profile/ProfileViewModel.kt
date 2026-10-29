@@ -70,7 +70,7 @@ class ProfileViewModel(
             genderRepository.saveGender(gender = selectedGender.value)
 
             personalGoalRepository.savePersonalGoalInKilos(
-                personalGoalInKilos = personalGoalTextState.text.toString().replace(oldChar = ',', newChar = '.').toDouble()
+                personalGoalInKilos = personalGoalTextState.text.toString().replace(oldChar = ',', newChar = '.').toFloat()
             )
 
             heightRepository.setHeight(
