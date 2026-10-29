@@ -41,6 +41,7 @@ import org.jetbrains.compose.resources.stringResource
 import superapp.composeapp.generated.resources.Res
 import superapp.composeapp.generated.resources.centimeters
 import superapp.composeapp.generated.resources.height
+import superapp.composeapp.generated.resources.how_many_kilos_to_lose
 import superapp.composeapp.generated.resources.kg
 import superapp.composeapp.generated.resources.profile
 import superapp.composeapp.generated.resources.save
@@ -202,6 +203,12 @@ private fun SetGoalView(
             text = stringResource(Res.string.set_your_goal).uppercase(),
             style = AppTypography.bodySmallLight,
             color = AppColors.olivePrimary,
+        )
+
+        Text(
+            text = stringResource(Res.string.how_many_kilos_to_lose),
+            style = AppTypography.bodySmallLight,
+            color = AppColors.gray300
         )
 
         Spacer(
