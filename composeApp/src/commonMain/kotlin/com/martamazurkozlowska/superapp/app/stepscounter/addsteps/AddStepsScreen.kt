@@ -18,7 +18,10 @@ fun AddStepsScreen(
         isStepsCountEmpty = false,
         selectedDateText = selectedDateText,
         onBackClick = onBackClick,
-        onSaveStepsClick = viewModel::onSaveStepsClick,
+        onSaveStepsClick = {
+            viewModel.onSaveStepsClick()
+            onBackClick()
+        },
         onDateSelected = viewModel::onDateSelected,
     )
 }
