@@ -16,6 +16,7 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.format
 import kotlinx.datetime.toLocalDateTime
+import kotlin.time.Clock
 import kotlin.time.Instant
 
 class AddStepsViewModel(
@@ -24,7 +25,9 @@ class AddStepsViewModel(
 ) : ViewModel() {
     val stepsCountTextState = TextFieldState()
 
-    private val selectedDateInMillis = MutableStateFlow<Long?>(null)
+    private val selectedDateInMillis = MutableStateFlow<Long?>(
+        Clock.System.now().toEpochMilliseconds()
+    )
     val selectedDateInMillisFlow = selectedDateInMillis.asStateFlow()
 
     private val selectedDateText = MutableStateFlow<String?>(null)
