@@ -78,7 +78,7 @@ class ProfileViewModel(
             )
 
             weightRepository.setWeight(
-                weight = weightTextState.text.toString().replace(oldChar = ',', newChar = '.').toDouble()
+                weight = weightTextState.text.toString().replace(oldChar = ',', newChar = '.').toFloat()
             )
         }
     }

@@ -4,6 +4,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.doublePreferencesKey
 import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.floatPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
@@ -11,9 +12,9 @@ import kotlinx.coroutines.runBlocking
 class WeightStorageManager(
     private val dataStore: DataStore<Preferences>,
 ) {
-    fun getWeight(): Flow<Double> = dataStore.data.map { it[key] ?: 0.0 }
+    fun getWeight(): Flow<Float> = dataStore.data.map { it[key] ?: 0.0f }
 
-    suspend fun setWeight(weight: Double) {
+    suspend fun setWeight(weight: Float) {
         runBlocking {
             dataStore.edit {
                 it[key] = weight
@@ -22,6 +23,6 @@ class WeightStorageManager(
     }
 
     companion object {
-        private val key = doublePreferencesKey("weight")
+        private val key = floatPreferencesKey("weight")
     }
 }

@@ -6,11 +6,11 @@ import kotlinx.coroutines.flow.Flow
 class WeightRepository(
     private val storageManager: WeightStorageManager,
 ) {
-    fun getWeight(): Flow<Double> {
+    fun getWeight(): Flow<Float> {
         return storageManager.getWeight()
     }
 
-    suspend fun setWeight(weight: Double) {
+    suspend fun setWeight(weight: Float) {
         storageManager.setWeight(weight = weight)
     }
 }
