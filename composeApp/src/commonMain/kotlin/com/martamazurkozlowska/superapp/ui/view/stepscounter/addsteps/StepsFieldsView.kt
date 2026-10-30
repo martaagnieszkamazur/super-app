@@ -228,7 +228,7 @@ private fun AddStepsTextFieldView(
             ),
             textStyle = AppTypography.bodyMediumBlack,
             keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Text,
+                keyboardType = KeyboardType.Number,
                 imeAction = ImeAction.Done,
             ),
             lineLimits = TextFieldLineLimits.SingleLine,
