@@ -1,6 +1,7 @@
 package com.martamazurkozlowska.superapp.di
 
 import com.martamazurkozlowska.superapp.app.main.MainScreenViewModel
+import com.martamazurkozlowska.superapp.app.main.MainViewModel
 import com.martamazurkozlowska.superapp.app.nutripulse.addingredient.AddIngredientViewModel
 import com.martamazurkozlowska.superapp.app.nutripulse.addmeal.AddMealViewModel
 import com.martamazurkozlowska.superapp.app.nutripulse.home.NutriPulseHomeViewModel
@@ -32,4 +33,5 @@ val appModule = module {
     viewModelOf(::NutriPulseJournalViewModel)
     viewModelOf(::NutriPulseProfileViewModel)
     viewModelOf(::IngredientsLibraryViewModel)
+    viewModelOf(::MainViewModel)
 }

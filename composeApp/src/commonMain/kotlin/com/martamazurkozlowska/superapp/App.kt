@@ -18,6 +18,7 @@ import com.martamazurkozlowska.superapp.app.MainNavigationScreen
 import com.martamazurkozlowska.superapp.di.appModule
 import com.martamazurkozlowska.superapp.di.dataModule
 import com.martamazurkozlowska.superapp.di.dataStoreModule
+import com.martamazurkozlowska.superapp.di.networkModule
 import com.martamazurkozlowska.superapp.di.storageModule
 import com.martamazurkozlowska.superapp.ui.theme.AppTheme
 import org.jetbrains.compose.resources.painterResource
@@ -32,7 +33,7 @@ import superapp.composeapp.generated.resources.compose_multiplatform
 fun App() {
     KoinApplication(
         configuration = koinConfiguration {
-            modules(appModule, dataModule, storageModule, dataStoreModule)
+            modules(appModule, dataModule, storageModule, networkModule, dataStoreModule)
         }
     ) {
         AppTheme {
