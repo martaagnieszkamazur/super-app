@@ -31,7 +31,8 @@ import superapp.composeapp.generated.resources.steps_sum
 
 @Composable
 fun HomeView(
-    stepsGoal: Int,
+    kilosGoal: Float,
+    kilosCompleted: Float,
     stepsSumValue: String,
     caloriesSumValue: String,
     kilometersSumValue: String,
@@ -45,10 +46,11 @@ fun HomeView(
             .padding(16.dp)
     ) {
         GoalCompletionView(
-            stepsGoal = stepsGoal,
             stepsCompleted = stepsSumValue.toInt(),
+            kilosGoal = kilosGoal,
+            kilosCompleted = kilosCompleted,
             modifier = Modifier.padding(vertical = 48.dp)
-            )
+        )
 
         StepsSummaryItemView(
             StepsSummaryItemUiModel(
@@ -112,7 +114,8 @@ fun HomeView(
 @Composable
 private fun HomeViewPreview() = AppTheme {
     HomeView(
-        stepsGoal = 200000,
+        kilosGoal = 5.0f,
+        kilosCompleted = 1.0f,
         stepsSumValue = "2000",
         caloriesSumValue = "750",
         kilometersSumValue = "6.4",

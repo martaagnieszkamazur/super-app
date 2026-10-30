@@ -99,7 +99,7 @@ private fun JournalViewPreview() = AppTheme {
         profileUiModel = ProfileUiModel(
             gender = GenderUiModel.Female,
             dailyStepsGoal = 6000,
-            personalGoalInKilos = 5.0,
+            personalGoalInKilos = 5.0f,
             stepLengthInCentimeters = 75,
             caloriesBurnt = 100,
         ),

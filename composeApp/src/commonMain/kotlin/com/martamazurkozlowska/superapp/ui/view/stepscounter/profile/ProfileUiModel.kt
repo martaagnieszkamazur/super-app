@@ -5,7 +5,7 @@ import com.martamazurkozlowska.superapp.ui.components.sexitem.GenderUiModel
 data class ProfileUiModel(
     val gender: GenderUiModel,
     val dailyStepsGoal: Int,
-    val personalGoalInKilos: Double,
+    val personalGoalInKilos: Float,
     val stepLengthInCentimeters: Int,
     val caloriesBurnt: Int,
 )

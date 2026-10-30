@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.TextAutoSize
-import androidx.compose.foundation.text.TextAutoSizeDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -14,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,8 +25,9 @@ import superapp.composeapp.generated.resources.steps_done
 
 @Composable
 fun GoalCompletionView(
-    stepsGoal: Int,
     stepsCompleted: Int,
+    kilosGoal: Float,
+    kilosCompleted: Float,
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -55,7 +54,7 @@ fun GoalCompletionView(
         }
 
         CircularProgressIndicator(
-            progress = { stepsCompleted.toFloat() / stepsGoal },
+            progress = { kilosCompleted / kilosGoal },
             strokeWidth = 20.dp,
             trackColor = AppColors.itemBackground,
             gapSize = (-20).dp,
@@ -74,7 +73,8 @@ private fun Color.colorWithBrush(): Brush {
 @Composable
 private fun GoalCompletionViewPreview() = AppTheme {
     GoalCompletionView(
-        stepsGoal = 200000,
-        stepsCompleted = 40000
+        stepsCompleted = 1000,
+        kilosGoal = 5.0f,
+        kilosCompleted = 1.0f
     )
 }

@@ -26,8 +26,11 @@ class HomeViewModel(
     private val caloriesSum: MutableStateFlow<Float> = MutableStateFlow(0.0f)
     val caloriesSumFlow = caloriesSum.asStateFlow()
 
-    private val personalGoal: MutableStateFlow<Int> = MutableStateFlow(0)
+    private val personalGoal: MutableStateFlow<Float> = MutableStateFlow(0.0f)
     val personalGoalFlow = personalGoal.asStateFlow()
+
+    private val kilogramsCompleted: MutableStateFlow<Float> = MutableStateFlow(0.0f)
+    val kilogramsCompletedFlow = kilogramsCompleted.asStateFlow()
 
     private val gender: MutableStateFlow<GenderUiModel> = MutableStateFlow(GenderUiModel.Female)
     val genderFlow = gender.asStateFlow()
@@ -64,8 +67,11 @@ class HomeViewModel(
                 weightFlow,
             ) { totalSteps, gender, weight ->
                 kilometers.value = getKilometersSum(totalSteps = totalSteps, gender = gender)
-                caloriesSum.value =
-                    getCaloriesSum(kilometers = kilometers.value, weight = weight).also { println("calories = $it") }
+                caloriesSum.value = getCaloriesSum(kilometers = kilometers.value, weight = weight)
+                kilogramsCompleted.value = getKilosCompleted(caloriesSum = caloriesSum.value).also {
+                    println("Kilos completed: $it")
+                    println("Kilos goal: ${personalGoal.value}")
+                }
             }.collect {}
         }
     }
@@ -80,5 +86,13 @@ class HomeViewModel(
         println("km=$kilometers, weight=$weight")
         val timeInMinutes = kilometers * 12f
         return round(3.5f * 3.5f * weight * timeInMinutes / 200 * 10.0f) / 10.0f
+    }
+
+    private fun getStepsGoal(stepsCompleted: Int) {
+
+    }
+
+    private fun getKilosCompleted(caloriesSum: Float): Float {
+        return caloriesSum / 7700f
     }
 }

@@ -3,7 +3,6 @@ package com.martamazurkozlowska.superapp.app.stepscounter.home
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewModelScope
 import com.martamazurkozlowska.superapp.ui.view.stepscounter.home.HomeView
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -15,9 +14,12 @@ fun HomeScreen(
     val stepsSumValue by viewModel.totalStepsFlow.collectAsStateWithLifecycle()
     val kilometersSum by viewModel.kilometersFlow.collectAsStateWithLifecycle()
     val caloriesSum by viewModel.caloriesSumFlow.collectAsStateWithLifecycle()
+    val kilosGoal by viewModel.personalGoalFlow.collectAsStateWithLifecycle()
+    val kilosCompleted by viewModel.kilogramsCompletedFlow.collectAsStateWithLifecycle()
 
     HomeView(
-        stepsGoal = 200000,
+        kilosGoal = kilosGoal,
+        kilosCompleted = kilosCompleted,
         stepsSumValue = stepsSumValue.toString(),
         caloriesSumValue = caloriesSum.toString(),
         kilometersSumValue = kilometersSum.toString(),
