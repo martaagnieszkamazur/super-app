@@ -41,6 +41,9 @@ class HomeViewModel(
     private val kilometers = MutableStateFlow<Float>(0.0f)
     val kilometersFlow = kilometers.asStateFlow()
 
+    private val stepsGoal = MutableStateFlow<Int>(0)
+    val stepsGoalFlow = stepsGoal.asStateFlow()
+
     init {
         viewModelScope.launch {
             repository.getStepsList().collect { stepsList ->
@@ -61,17 +64,21 @@ class HomeViewModel(
         }
 
         viewModelScope.launch {
+            personalGoalRepository.getPersonalGoalInKilos().collect {
+                personalGoal.value = it
+            }
+        }
+
+        viewModelScope.launch {
             combine(
                 totalStepsFlow,
                 genderFlow,
                 weightFlow,
-            ) { totalSteps, gender, weight ->
+                personalGoalFlow,
+            ) { totalSteps, gender, weight, personalGoal ->
                 kilometers.value = getKilometersSum(totalSteps = totalSteps, gender = gender)
                 caloriesSum.value = getCaloriesSum(kilometers = kilometers.value, weight = weight)
-                kilogramsCompleted.value = getKilosCompleted(caloriesSum = caloriesSum.value).also {
-                    println("Kilos completed: $it")
-                    println("Kilos goal: ${personalGoal.value}")
-                }
+                stepsGoal.value = getStepsGoal(kilosGoal = personalGoal, weight = weight)
             }.collect {}
         }
     }
@@ -83,16 +90,21 @@ class HomeViewModel(
     }
 
     private fun getCaloriesSum(kilometers: Float, weight: Float): Float {
-        println("km=$kilometers, weight=$weight")
         val timeInMinutes = kilometers * 12f
         return round(3.5f * 3.5f * weight * timeInMinutes / 200 * 10.0f) / 10.0f
     }
 
-    private fun getStepsGoal(stepsCompleted: Int) {
-
+    private fun getStepsGoal(kilosGoal: Float, weight: Float): Int {
+        val caloriesBurntAccordingToKilos = when (weight) {
+            60.0f -> 275
+            70.0f -> 325
+            80.0f -> 375
+            90.0f -> 425
+            else  -> 500
+        }
+        val caloriesGoal = kilosGoal * 7700
+        val result = caloriesGoal / caloriesBurntAccordingToKilos * 10000
+        return result.toInt()
     }
 
-    private fun getKilosCompleted(caloriesSum: Float): Float {
-        return caloriesSum / 7700f
-    }
 }
