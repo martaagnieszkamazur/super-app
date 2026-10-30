@@ -39,7 +39,7 @@ fun GoalCompletionView(
             modifier = Modifier.padding(24.dp)
         ) {
             Text(
-                text = stepsCompleted.toString(),
+                text = "${stepsCompleted/1000}k",
                 style = AppTypography.goalCount,
                 autoSize = TextAutoSize.StepBased(maxFontSize = 35.sp),
                 color = AppColors.bluePrimary,
