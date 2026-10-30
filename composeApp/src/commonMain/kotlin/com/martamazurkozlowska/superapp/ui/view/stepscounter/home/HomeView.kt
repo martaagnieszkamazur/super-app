@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.martamazurkozlowska.superapp.ui.components.StepsGoalView
 import com.martamazurkozlowska.superapp.ui.components.buttons.StepsCounterPrimaryButton
 import com.martamazurkozlowska.superapp.ui.components.goalcompletion.GoalCompletionView
 import com.martamazurkozlowska.superapp.ui.components.stepssummary.StepsSummaryItemUiModel
@@ -48,6 +49,11 @@ fun HomeView(
             stepsCompleted = stepsSumValue.toInt(),
             stepsGoal = stepsGoal,
             modifier = Modifier.padding(vertical = 48.dp)
+        )
+
+        StepsGoalView(
+            stepsGoal = stepsGoal,
+            modifier = Modifier.padding(vertical = 24.dp)
         )
 
         StepsSummaryItemView(
