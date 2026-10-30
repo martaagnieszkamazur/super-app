@@ -26,8 +26,7 @@ import superapp.composeapp.generated.resources.steps_done
 @Composable
 fun GoalCompletionView(
     stepsCompleted: Int,
-    kilosGoal: Float,
-    kilosCompleted: Float,
+    stepsGoal:Int,
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -54,7 +53,7 @@ fun GoalCompletionView(
         }
 
         CircularProgressIndicator(
-            progress = { kilosCompleted / kilosGoal },
+            progress = { stepsCompleted / stepsGoal.toFloat() },
             strokeWidth = 20.dp,
             trackColor = AppColors.itemBackground,
             gapSize = (-20).dp,
@@ -73,8 +72,7 @@ private fun Color.colorWithBrush(): Brush {
 @Composable
 private fun GoalCompletionViewPreview() = AppTheme {
     GoalCompletionView(
-        stepsCompleted = 1000,
-        kilosGoal = 5.0f,
-        kilosCompleted = 1.0f
+        stepsCompleted = 75000,
+        stepsGoal = 1400000,
     )
 }

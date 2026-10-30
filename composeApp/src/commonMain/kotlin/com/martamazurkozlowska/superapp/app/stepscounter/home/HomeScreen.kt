@@ -14,13 +14,11 @@ fun HomeScreen(
     val stepsSumValue by viewModel.totalStepsFlow.collectAsStateWithLifecycle()
     val kilometersSum by viewModel.kilometersFlow.collectAsStateWithLifecycle()
     val caloriesSum by viewModel.caloriesSumFlow.collectAsStateWithLifecycle()
-    val kilosGoal by viewModel.personalGoalFlow.collectAsStateWithLifecycle()
-    val kilosCompleted by viewModel.kilogramsCompletedFlow.collectAsStateWithLifecycle()
+    val stepsGoal by viewModel.stepsGoalFlow.collectAsStateWithLifecycle()
 
     HomeView(
-        kilosGoal = kilosGoal,
-        kilosCompleted = kilosCompleted,
         stepsSumValue = stepsSumValue.toString(),
+        stepsGoal = stepsGoal,
         caloriesSumValue = caloriesSum.toString(),
         kilometersSumValue = kilometersSum.toString(),
         onAddStepsClick = onAddStepsClick,
