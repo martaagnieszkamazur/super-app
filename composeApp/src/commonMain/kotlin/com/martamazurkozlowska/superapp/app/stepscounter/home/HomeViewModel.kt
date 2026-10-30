@@ -96,10 +96,10 @@ class HomeViewModel(
 
     private fun getStepsGoal(kilosGoal: Float, weight: Float): Int {
         val caloriesBurntAccordingToKilos = when (weight) {
-            60.0f -> 275
-            70.0f -> 325
-            80.0f -> 375
-            90.0f -> 425
+            in 0.0f..60.0f  -> 275
+            in 60.0f..70.0f -> 325
+            in 70.0f..80.0f -> 375
+            in 80.0f..90.0f -> 425
             else  -> 500
         }
         val caloriesGoal = kilosGoal * 7700
