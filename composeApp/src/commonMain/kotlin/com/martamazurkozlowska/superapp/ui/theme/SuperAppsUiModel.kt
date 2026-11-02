@@ -2,7 +2,9 @@ package com.martamazurkozlowska.superapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
 import superapp.composeapp.generated.resources.Res
+import superapp.composeapp.generated.resources.albums
 import superapp.composeapp.generated.resources.nutri_pulse
 import superapp.composeapp.generated.resources.steps_counter
 import superapp.composeapp.generated.resources.test
@@ -24,5 +26,10 @@ enum class SuperAppsUiModel(
     Test(
         color = AppColors.blue800,
         appName = Res.string.test,
+    ),
+
+    Album(
+        color = AppColors.lime600,
+        appName = Res.string.albums,
     )
 }

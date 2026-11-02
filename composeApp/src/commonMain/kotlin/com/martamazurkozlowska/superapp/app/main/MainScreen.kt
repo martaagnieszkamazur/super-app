@@ -15,5 +15,6 @@ fun MainScreen(
         onStepsCounterAppClick = onStepsCounterAppClick,
         onNutriPulseAppClick = onNutriPulseAppClick,
         onTestClick = onTestClick,
+        onAlbumClick = {},
     )
 }

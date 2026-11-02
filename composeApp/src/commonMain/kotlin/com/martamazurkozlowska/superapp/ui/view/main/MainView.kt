@@ -22,6 +22,7 @@ fun MainView(
     onStepsCounterAppClick: () -> Unit,
     onNutriPulseAppClick: () -> Unit,
     onTestClick: () -> Unit,
+    onAlbumClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -63,6 +64,15 @@ fun MainView(
                 appUiModel = SuperAppsUiModel.Test,
                 onClick = onTestClick,
             )
+
+            Spacer(
+                modifier = Modifier.height(12.dp)
+            )
+
+            PrimaryButton(
+                appUiModel = SuperAppsUiModel.Album,
+                onClick = onAlbumClick,
+            )
         }
     }
 
@@ -75,5 +85,6 @@ private fun MainViewPreview() = AppTheme {
         onStepsCounterAppClick = {},
         onNutriPulseAppClick = {},
         onTestClick = {},
+        onAlbumClick = {},
     )
 }
