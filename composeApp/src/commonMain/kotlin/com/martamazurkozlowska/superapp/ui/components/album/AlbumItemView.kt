@@ -17,11 +17,13 @@ fun AlbumItemView(
     onItemClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column {
+    Column(
+        modifier = modifier
+    ) {
         TextButton(
             onClick = onItemClick,
             colors = ButtonColors(
-                containerColor = AppColors.limePrimary,
+                containerColor = AppColors.lime600,
                 contentColor = AppColors.limeWhite,
                 disabledContentColor = AppColors.text,
                 disabledContainerColor = AppColors.gray400,
