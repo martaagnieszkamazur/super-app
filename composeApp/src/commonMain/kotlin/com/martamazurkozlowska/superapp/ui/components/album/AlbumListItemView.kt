@@ -1,0 +1,47 @@
+package com.martamazurkozlowska.superapp.ui.components.album
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.martamazurkozlowska.superapp.ui.theme.AppColors
+import com.martamazurkozlowska.superapp.ui.theme.AppTheme
+import com.martamazurkozlowska.superapp.ui.theme.AppTypography
+
+@Composable
+fun AlbumListItemView(
+    itemName: String,
+    onItemClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column {
+        TextButton(
+            onClick = onItemClick,
+            colors = ButtonColors(
+                containerColor = AppColors.limePrimary,
+                contentColor = AppColors.limeWhite,
+                disabledContentColor = AppColors.text,
+                disabledContainerColor = AppColors.gray400,
+            ),
+            content = {
+                Text(
+                    text = itemName,
+                    style = AppTypography.bodyMediumRegular,
+                )
+            }
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun AlbumListItemViewPreview() = AppTheme {
+    AlbumListItemView(
+        itemName = "Pieski",
+        onItemClick = {},
+    )
+}
