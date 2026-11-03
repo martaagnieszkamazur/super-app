@@ -19,6 +19,9 @@ object Route {
     object Test : NavKey
 
     @Serializable
+    object Albums: NavKey
+
+    @Serializable
     sealed interface StepsCounterNav : NavKey {
 
         @Serializable
@@ -63,6 +66,7 @@ object Route {
                 subclass(StepsCounter::class, StepsCounter.serializer())
                 subclass(NutriPulse::class, NutriPulse.serializer())
                 subclass(Test::class, Test.serializer())
+                subclass(Albums::class, Albums.serializer())
                 subclass(StepsCounterNav.Home::class, StepsCounterNav.Home.serializer())
                 subclass(StepsCounterNav.Journal::class, StepsCounterNav.Journal.serializer())
                 subclass(StepsCounterNav.Profile::class, StepsCounterNav.Profile.serializer())

@@ -9,12 +9,13 @@ fun MainScreen(
     onStepsCounterAppClick: () -> Unit,
     onNutriPulseAppClick: () -> Unit,
     onTestClick: () -> Unit,
+    onAlbumsClick: () -> Unit,
     viewModel: MainViewModel = koinViewModel(),
 ) {
     MainView(
         onStepsCounterAppClick = onStepsCounterAppClick,
         onNutriPulseAppClick = onNutriPulseAppClick,
         onTestClick = onTestClick,
-        onAlbumClick = {},
+        onAlbumClick = onAlbumsClick,
     )
 }

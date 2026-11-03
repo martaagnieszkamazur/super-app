@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
+import com.martamazurkozlowska.superapp.app.album.albumlist.AlbumListScreen
 import com.martamazurkozlowska.superapp.app.main.MainScreen
 import com.martamazurkozlowska.superapp.app.nutripulse.navigation.NutriPulseNavigationScreen
 import com.martamazurkozlowska.superapp.app.stepscounter.navigation.StepsNavigationScreen
@@ -22,13 +23,14 @@ fun MainNavigationScreen() {
                     onStepsCounterAppClick = {
                         backStack.add(Route.StepsCounter)
                     },
-
                     onNutriPulseAppClick = {
                         backStack.add(Route.NutriPulse)
                     },
-
                     onTestClick = {
                         backStack.add(Route.Test)
+                    },
+                    onAlbumsClick = {
+                        backStack.add(Route.Albums)
                     }
                 )
             }
@@ -43,6 +45,10 @@ fun MainNavigationScreen() {
 
             entry<Route.Test> {
                 TestScreen()
+            }
+
+            entry<Route.Albums> {
+                AlbumListScreen()
             }
         }
     )
