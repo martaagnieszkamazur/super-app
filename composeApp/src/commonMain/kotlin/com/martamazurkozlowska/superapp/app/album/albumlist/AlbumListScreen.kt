@@ -7,11 +7,12 @@ import com.martamazurkozlowska.superapp.ui.view.album.albumlist.AlbumListView
 
 @Composable
 fun AlbumListScreen(
-    viewModel: AlbumListViewModel
-){
+    viewModel: AlbumListViewModel,
+) {
     val albumList by viewModel.albumListFlow.collectAsStateWithLifecycle()
 
     AlbumListView(
         albumList = albumList,
+        onItemClick = {},
     )
 }

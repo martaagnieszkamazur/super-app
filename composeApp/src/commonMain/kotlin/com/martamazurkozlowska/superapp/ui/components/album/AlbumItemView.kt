@@ -2,7 +2,6 @@ package com.martamazurkozlowska.superapp.ui.components.album
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.ButtonColors
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -13,7 +12,7 @@ import com.martamazurkozlowska.superapp.ui.theme.AppTheme
 import com.martamazurkozlowska.superapp.ui.theme.AppTypography
 
 @Composable
-fun AlbumListItemView(
+fun AlbumItemView(
     itemName: String,
     onItemClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -39,8 +38,8 @@ fun AlbumListItemView(
 
 @Preview
 @Composable
-private fun AlbumListItemViewPreview() = AppTheme {
-    AlbumListItemView(
+private fun AlbumItemViewPreview() = AppTheme {
+    AlbumItemView(
         itemName = "Pieski",
         onItemClick = {},
     )
