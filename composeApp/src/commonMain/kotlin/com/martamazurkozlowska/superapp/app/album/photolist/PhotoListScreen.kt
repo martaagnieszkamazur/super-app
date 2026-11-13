@@ -1,7 +1,6 @@
-package com.martamazurkozlowska.superapp.app.album.albumlist.photolist
+package com.martamazurkozlowska.superapp.app.album.photolist
 
 import androidx.compose.runtime.Composable
-import com.martamazurkozlowska.superapp.app.album.photolist.PhotoListViewModel
 import com.martamazurkozlowska.superapp.ui.view.album.photolist.PhotoListView
 import org.koin.compose.viewmodel.koinViewModel
 

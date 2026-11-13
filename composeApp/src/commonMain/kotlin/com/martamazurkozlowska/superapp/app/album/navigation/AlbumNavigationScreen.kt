@@ -11,16 +11,13 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.martamazurkozlowska.superapp.app.album.albumlist.AlbumListScreen
-import com.martamazurkozlowska.superapp.app.album.albumlist.photolist.PhotoListScreen
+import com.martamazurkozlowska.superapp.app.album.photolist.PhotoListScreen
 import com.martamazurkozlowska.superapp.ui.components.navigationbar.NavigationBar
 import com.martamazurkozlowska.superapp.ui.components.statusbar.StatusBar
 import com.martamazurkozlowska.superapp.ui.theme.AppColors
-import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun AlbumNavigationScreen(
-    viewModel: AlbumNavigationViewModel = koinViewModel(),
-) {
+fun AlbumNavigationScreen() {
     val backStack = rememberNavBackStack(configuration = Route.config, Route.Albums)
 
     Column(
