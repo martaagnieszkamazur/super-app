@@ -41,7 +41,11 @@ fun AlbumNavigationScreen() {
                 }
 
                 entry<Route.AlbumNav.PhotoList> {
-                    PhotoListScreen()
+                    PhotoListScreen(
+                        onBackClick = {
+                            backStack.removeLastOrNull()
+                        }
+                    )
                 }
             },
             modifier = Modifier.weight(1f)
