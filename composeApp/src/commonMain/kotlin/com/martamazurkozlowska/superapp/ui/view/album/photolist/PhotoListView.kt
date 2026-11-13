@@ -1,6 +1,7 @@
 package com.martamazurkozlowska.superapp.ui.view.album.photolist
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -33,7 +34,7 @@ fun PhotoListView(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(AppColors.limeWhite)
+            .background(AppColors.blue800)
             .padding(24.dp)
     ) {
         TopAppBarView(
@@ -43,11 +44,12 @@ fun PhotoListView(
         )
 
         LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 64.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            columns = GridCells.Adaptive(minSize = 128.dp),
         ) {
             items(items = photoList) {
                 PhotoItemView(
-                    itemName = it.id.toString(),
+                    item = it,
                     modifier = Modifier.padding(8.dp))
             }
         }

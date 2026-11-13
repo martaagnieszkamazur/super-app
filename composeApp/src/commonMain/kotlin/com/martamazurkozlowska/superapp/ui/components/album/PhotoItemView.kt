@@ -1,39 +1,36 @@
 package com.martamazurkozlowska.superapp.ui.components.album
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.martamazurkozlowska.superapp.ui.theme.AppColors
-import com.martamazurkozlowska.superapp.ui.theme.AppShapes
+import coil3.compose.AsyncImage
 import com.martamazurkozlowska.superapp.ui.theme.AppTheme
-import com.martamazurkozlowska.superapp.ui.theme.AppTypography
+import com.martamazurkozlowska.superapp.ui.view.album.photolist.PhotoUiModel
 
 @Composable
 fun PhotoItemView(
-    itemName: String,
+    item: PhotoUiModel,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .background(color = AppColors.bluePrimary, shape = AppShapes.item)
-            .padding(16.dp)
-    ) {
-        Text(
-            text = itemName,
-            style = AppTypography.bodyMediumRegular,
-        )
-    }
+    AsyncImage(
+        model = "https://4rooms.com.pl/environment/cache/images/productGfx_1279cded36c5a39ffac5a8b86ffa654c_1000_1000.webp",
+        contentDescription = null,
+        modifier = Modifier.size(100.dp)
+    )
 }
 
 @Preview
 @Composable
 private fun PhotoItemViewPreview() = AppTheme {
     PhotoItemView(
-        itemName = "Zdjęcie 1"
+        item = PhotoUiModel(
+            albumId = 1,
+            id = 2,
+            title = "reprehenderit est deserunt velit ipsam",
+            url = "https://4rooms.com.pl/environment/cache/images/productGfx_1279cded36c5a39ffac5a8b86ffa654c_1000_1000.webp",
+            thumbnailUrl = "https://picsum.photos/seed/2/150",
+        ),
     )
 }
