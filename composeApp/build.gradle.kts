@@ -77,6 +77,10 @@ kotlin {
                 implementation(libs.ktor.client.contentNegotiation)
                 implementation(libs.ktor.serialization.kotlinxJson)
                 implementation(libs.ktor.client.logging)
+
+                // Coil
+                implementation(libs.coil.compose)
+                implementation(libs.coil.network.ktor3)
             }
 
             commonTest.dependencies {
