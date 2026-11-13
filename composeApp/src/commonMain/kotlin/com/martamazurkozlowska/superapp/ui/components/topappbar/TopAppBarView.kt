@@ -1,6 +1,5 @@
 package com.martamazurkozlowska.superapp.ui.components.topappbar
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -37,7 +36,6 @@ fun TopAppBarView(
         modifier = modifier
             .fillMaxWidth()
             .height(AppDimens.topAppBarHeight)
-            .background(AppColors.background)
     ) {
         Icon(
             painter = painterResource(Res.drawable.ic_back),

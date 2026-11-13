@@ -13,8 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.martamazurkozlowska.superapp.ui.components.buttons.StepsCounterPrimaryButton
-import com.martamazurkozlowska.superapp.ui.components.navigationbar.NavigationBar
-import com.martamazurkozlowska.superapp.ui.components.statusbar.StatusBar
 import com.martamazurkozlowska.superapp.ui.components.topappbar.TopAppBarView
 import com.martamazurkozlowska.superapp.ui.theme.AppColors
 import com.martamazurkozlowska.superapp.ui.theme.AppTheme
