@@ -1,7 +1,6 @@
-package com.martamazurkozlowska.superapp.data.album
+package com.martamazurkozlowska.superapp.data.album.photo
 
 import com.martamazurkozlowska.superapp.domain.album.PhotoDomainModel
-import com.martamazurkozlowska.superapp.ui.view.album.photolist.PhotoUiModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
