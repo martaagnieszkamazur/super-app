@@ -6,6 +6,6 @@ object AlbumApiConfig {
 
     object Endpoints {
         fun getAlbums() = "/albums"
-        fun getPhotos(albumId: Int) = "/albums/$albumId/photos"
+        fun getPhotos(albumId: Long) = "/albums/$albumId/photos"
     }
 }

@@ -8,6 +8,7 @@ import com.martamazurkozlowska.superapp.data.profile.PersonalGoalRepository
 import com.martamazurkozlowska.superapp.data.profile.WeightRepository
 import com.martamazurkozlowska.superapp.data.stepslist.StepsListRepository
 import com.martamazurkozlowska.superapp.data.album.AlbumListRepository
+import com.martamazurkozlowska.superapp.data.album.photo.PhotoListRepository
 import org.koin.core.module.dsl.factoryOf
 import org.koin.dsl.module
 
@@ -20,4 +21,5 @@ val dataModule = module {
     factoryOf(::WeightRepository)
     factoryOf(::IngredientsRepository)
     factoryOf(::AlbumListRepository)
+    factoryOf(::PhotoListRepository)
 }

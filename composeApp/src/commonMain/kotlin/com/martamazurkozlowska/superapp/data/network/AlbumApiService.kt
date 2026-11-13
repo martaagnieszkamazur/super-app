@@ -1,6 +1,7 @@
 package com.martamazurkozlowska.superapp.data.network
 
 import com.martamazurkozlowska.superapp.data.album.AlbumApiModel
+import com.martamazurkozlowska.superapp.data.album.photo.PhotoApiModel
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -21,6 +22,9 @@ class AlbumApiService {
 
     suspend fun getAlbumList(): List<AlbumApiModel> =
         httpClient.get(AlbumApiConfig.Endpoints.getAlbums()).body<List<AlbumApiModel>>()
+
+    suspend fun getPhotoList(albumId: Long): List<PhotoApiModel> =
+        httpClient.get(urlString = AlbumApiConfig.Endpoints.getPhotos(albumId)).body<List<PhotoApiModel>>()
 }
 
 private fun createHttpClient(): HttpClient = HttpClient {
