@@ -1,6 +1,8 @@
 package com.martamazurkozlowska.superapp.di
 
 import com.martamazurkozlowska.superapp.app.album.albumlist.AlbumListViewModel
+import com.martamazurkozlowska.superapp.app.album.navigation.AlbumNavigationViewModel
+import com.martamazurkozlowska.superapp.app.album.photolist.PhotoListViewModel
 import com.martamazurkozlowska.superapp.app.main.MainScreenViewModel
 import com.martamazurkozlowska.superapp.app.main.MainViewModel
 import com.martamazurkozlowska.superapp.app.nutripulse.addingredient.AddIngredientViewModel
@@ -35,5 +37,7 @@ val appModule = module {
     viewModelOf(::NutriPulseProfileViewModel)
     viewModelOf(::IngredientsLibraryViewModel)
     viewModelOf(::MainViewModel)
+    viewModelOf(::AlbumNavigationViewModel)
     viewModelOf(::AlbumListViewModel)
+    viewModelOf(::PhotoListViewModel)
 }

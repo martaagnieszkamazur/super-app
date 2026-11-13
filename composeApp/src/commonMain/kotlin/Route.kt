@@ -19,7 +19,7 @@ object Route {
     object Test : NavKey
 
     @Serializable
-    object Albums: NavKey
+    object Albums : NavKey
 
     @Serializable
     sealed interface StepsCounterNav : NavKey {
@@ -41,22 +41,29 @@ object Route {
     sealed interface NutriPulseNav : NavKey {
 
         @Serializable
-        object Home: NutriPulseNav
+        object Home : NutriPulseNav
 
         @Serializable
-        object AddMeal: NutriPulseNav
+        object AddMeal : NutriPulseNav
 
         @Serializable
-        object AddIngredient: NutriPulseNav
+        object AddIngredient : NutriPulseNav
 
         @Serializable
-        object IngredientsLibrary: NutriPulseNav
+        object IngredientsLibrary : NutriPulseNav
 
         @Serializable
-        object Journal: NutriPulseNav
+        object Journal : NutriPulseNav
 
         @Serializable
-        object Profile: NutriPulseNav
+        object Profile : NutriPulseNav
+    }
+
+    @Serializable
+    sealed interface AlbumNav : NavKey {
+
+        @Serializable
+        object PhotoList: AlbumNav
     }
 
     val config = SavedStateConfiguration {
@@ -77,6 +84,7 @@ object Route {
                 subclass(NutriPulseNav.IngredientsLibrary::class, NutriPulseNav.IngredientsLibrary.serializer())
                 subclass(NutriPulseNav.Journal::class, NutriPulseNav.Journal.serializer())
                 subclass(NutriPulseNav.Profile::class, NutriPulseNav.Profile.serializer())
+                subclass(AlbumNav.PhotoList::class, AlbumNav.PhotoList.serializer())
             }
         }
     }

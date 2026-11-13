@@ -6,6 +6,7 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.martamazurkozlowska.superapp.app.album.albumlist.AlbumListScreen
+import com.martamazurkozlowska.superapp.app.album.navigation.AlbumNavigationScreen
 import com.martamazurkozlowska.superapp.app.main.MainScreen
 import com.martamazurkozlowska.superapp.app.nutripulse.navigation.NutriPulseNavigationScreen
 import com.martamazurkozlowska.superapp.app.stepscounter.navigation.StepsNavigationScreen
@@ -48,7 +49,7 @@ fun MainNavigationScreen() {
             }
 
             entry<Route.Albums> {
-                AlbumListScreen()
+                AlbumNavigationScreen()
             }
         }
     )
