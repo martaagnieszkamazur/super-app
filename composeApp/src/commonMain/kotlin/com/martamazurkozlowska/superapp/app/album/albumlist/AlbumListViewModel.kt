@@ -3,6 +3,7 @@ package com.martamazurkozlowska.superapp.app.album.albumlist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.martamazurkozlowska.superapp.data.album.AlbumListRepository
+import com.martamazurkozlowska.superapp.data.album.toUiModel
 import com.martamazurkozlowska.superapp.ui.view.album.albumlist.AlbumUiModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -17,7 +18,7 @@ class AlbumListViewModel(
 
     init {
         viewModelScope.launch {
-            albumList.value = repository.getAlbumList()
+            albumList.value = repository.getAlbumList().map { it.toUiModel() }
         }
     }
 }

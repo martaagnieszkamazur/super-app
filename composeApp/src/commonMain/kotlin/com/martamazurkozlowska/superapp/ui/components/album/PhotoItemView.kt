@@ -12,11 +12,12 @@ import com.martamazurkozlowska.superapp.ui.view.album.photolist.PhotoUiModel
 @Composable
 fun PhotoItemView(
     item: PhotoUiModel,
+    modifier: Modifier = Modifier
 ) {
     AsyncImage(
         model = item.url,
         contentDescription = null,
-        modifier = Modifier.size(100.dp)
+        modifier = modifier.size(100.dp)
     )
 }
 

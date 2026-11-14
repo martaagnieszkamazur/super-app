@@ -20,8 +20,7 @@ data class PhotoApiModel(
 
     @SerialName("thumbnailUrl")
     val thumbnailUrl: String,
-) {
-}
+)
 
 fun PhotoApiModel.toDomainModel() = PhotoDomainModel(
     albumId = albumId,
