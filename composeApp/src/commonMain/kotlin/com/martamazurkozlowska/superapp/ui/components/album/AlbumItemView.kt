@@ -10,18 +10,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.martamazurkozlowska.superapp.ui.theme.AppColors
 import com.martamazurkozlowska.superapp.ui.theme.AppTheme
 import com.martamazurkozlowska.superapp.ui.theme.AppTypography
+import com.martamazurkozlowska.superapp.ui.view.album.albumlist.AlbumUiModel
 
 @Composable
 fun AlbumItemView(
-    itemName: String,
-    onItemClick: () -> Unit,
+    item: AlbumUiModel,
+    onItemClick: (albumId: Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = modifier
     ) {
         TextButton(
-            onClick = onItemClick,
+            onClick = { onItemClick(item.id) },
             colors = ButtonColors(
                 containerColor = AppColors.lime600,
                 contentColor = AppColors.limeWhite,
@@ -30,7 +31,7 @@ fun AlbumItemView(
             ),
             content = {
                 Text(
-                    text = itemName,
+                    text = item.title,
                     style = AppTypography.bodyMediumRegular,
                 )
             }
@@ -42,7 +43,10 @@ fun AlbumItemView(
 @Composable
 private fun AlbumItemViewPreview() = AppTheme {
     AlbumItemView(
-        itemName = "Pieski",
+        item = AlbumUiModel(
+            id = 1,
+            title = "Pieski"
+        ),
         onItemClick = {},
     )
 }

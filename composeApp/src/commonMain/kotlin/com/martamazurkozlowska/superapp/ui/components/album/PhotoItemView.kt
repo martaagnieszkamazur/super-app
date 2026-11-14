@@ -12,10 +12,9 @@ import com.martamazurkozlowska.superapp.ui.view.album.photolist.PhotoUiModel
 @Composable
 fun PhotoItemView(
     item: PhotoUiModel,
-    modifier: Modifier = Modifier,
 ) {
     AsyncImage(
-        model = "https://4rooms.com.pl/environment/cache/images/productGfx_1279cded36c5a39ffac5a8b86ffa654c_1000_1000.webp",
+        model = item.url,
         contentDescription = null,
         modifier = Modifier.size(100.dp)
     )

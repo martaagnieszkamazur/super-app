@@ -63,7 +63,12 @@ object Route {
     sealed interface AlbumNav : NavKey {
 
         @Serializable
-        object PhotoList: AlbumNav
+        object AlbumList: AlbumNav
+
+        @Serializable
+        data class PhotoList(
+            val albumId: Long,
+        ) : AlbumNav
     }
 
     val config = SavedStateConfiguration {
@@ -84,6 +89,7 @@ object Route {
                 subclass(NutriPulseNav.IngredientsLibrary::class, NutriPulseNav.IngredientsLibrary.serializer())
                 subclass(NutriPulseNav.Journal::class, NutriPulseNav.Journal.serializer())
                 subclass(NutriPulseNav.Profile::class, NutriPulseNav.Profile.serializer())
+                subclass(AlbumNav.AlbumList::class, AlbumNav.AlbumList.serializer())
                 subclass(AlbumNav.PhotoList::class, AlbumNav.PhotoList.serializer())
             }
         }

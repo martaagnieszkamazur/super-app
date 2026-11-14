@@ -16,7 +16,7 @@ import com.martamazurkozlowska.superapp.ui.theme.AppTheme
 @Composable
 fun AlbumListView(
     albumList: List<AlbumUiModel>,
-    onItemClick: () -> Unit,
+    onItemClick: (albumId: Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -29,7 +29,7 @@ fun AlbumListView(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             items(items = albumList) {
-                AlbumItemView(itemName = it.title, onItemClick = onItemClick)
+                AlbumItemView(item = it, onItemClick = onItemClick)
             }
         }
     }

@@ -18,7 +18,7 @@ import com.martamazurkozlowska.superapp.ui.theme.AppColors
 
 @Composable
 fun AlbumNavigationScreen() {
-    val backStack = rememberNavBackStack(configuration = Route.config, Route.Albums)
+    val backStack = rememberNavBackStack(configuration = Route.config, Route.AlbumNav.AlbumList)
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -34,14 +34,15 @@ fun AlbumNavigationScreen() {
                 rememberViewModelStoreNavEntryDecorator(),
             ),
             entryProvider = entryProvider {
-                entry<Route.Albums> {
+                entry<Route.AlbumNav.AlbumList> {
                     AlbumListScreen(
-                        onAlbumItemClick = { backStack.add(Route.AlbumNav.PhotoList) }
+                        onAlbumItemClick = { backStack.add(Route.AlbumNav.PhotoList(albumId = it)) }
                     )
                 }
 
                 entry<Route.AlbumNav.PhotoList> {
                     PhotoListScreen(
+                        albumId = it.albumId,
                         onBackClick = {
                             backStack.removeLastOrNull()
                         }

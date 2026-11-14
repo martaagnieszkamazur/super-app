@@ -16,9 +16,9 @@ class PhotoListViewModel(
     private val photoList = MutableStateFlow<List<PhotoUiModel>>(emptyList())
     val photoListFlow = photoList.asStateFlow()
 
-    init {
+    fun init(albumId: Long) {
         viewModelScope.launch {
-            photoList.value = repository.getPhotoList(1).map { it.toUiModel() }
+            photoList.value = repository.getPhotoList(albumId).map { it.toUiModel() }
         }
     }
 }

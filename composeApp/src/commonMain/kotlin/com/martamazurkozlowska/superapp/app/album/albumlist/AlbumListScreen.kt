@@ -9,7 +9,7 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun AlbumListScreen(
     viewModel: AlbumListViewModel = koinViewModel(),
-    onAlbumItemClick: () -> Unit,
+    onAlbumItemClick: (albumId: Long) -> Unit,
 ) {
     val albumList by viewModel.albumListFlow.collectAsStateWithLifecycle()
 
