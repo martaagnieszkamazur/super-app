@@ -6,5 +6,4 @@ import kotlinx.serialization.Serializable
 data class AlbumUiModel(
     val id: Long,
     val title: String,
-) {
-}
+)
