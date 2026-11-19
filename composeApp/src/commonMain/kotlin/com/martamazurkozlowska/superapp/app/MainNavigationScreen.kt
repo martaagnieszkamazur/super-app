@@ -2,10 +2,11 @@ package com.martamazurkozlowska.superapp.app
 
 import Route
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
-import com.martamazurkozlowska.superapp.app.album.albumlist.AlbumListScreen
 import com.martamazurkozlowska.superapp.app.album.navigation.AlbumNavigationScreen
 import com.martamazurkozlowska.superapp.app.main.MainScreen
 import com.martamazurkozlowska.superapp.app.nutripulse.navigation.NutriPulseNavigationScreen
@@ -18,6 +19,10 @@ fun MainNavigationScreen() {
 
     NavDisplay(
         backStack = backStack,
+        entryDecorators = listOf(
+            rememberSaveableStateHolderNavEntryDecorator(),
+            rememberViewModelStoreNavEntryDecorator(),
+        ),
         entryProvider = entryProvider {
             entry<Route.Main> {
                 MainScreen(
