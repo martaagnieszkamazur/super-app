@@ -2,8 +2,6 @@ package com.martamazurkozlowska.superapp.di
 
 import com.martamazurkozlowska.superapp.app.album.albumlist.AlbumListViewModel
 import com.martamazurkozlowska.superapp.app.album.photolist.PhotoListViewModel
-import com.martamazurkozlowska.superapp.app.main.MainScreenViewModel
-import com.martamazurkozlowska.superapp.app.main.MainViewModel
 import com.martamazurkozlowska.superapp.app.nutripulse.addingredient.AddIngredientViewModel
 import com.martamazurkozlowska.superapp.app.nutripulse.addmeal.AddMealViewModel
 import com.martamazurkozlowska.superapp.app.nutripulse.home.NutriPulseHomeViewModel
@@ -13,15 +11,16 @@ import com.martamazurkozlowska.superapp.app.nutripulse.navigation.NutriPulseNavi
 import com.martamazurkozlowska.superapp.app.nutripulse.profile.NutriPulseProfileViewModel
 import com.martamazurkozlowska.superapp.app.stepscounter.addsteps.AddStepsViewModel
 import com.martamazurkozlowska.superapp.app.stepscounter.home.HomeViewModel
+import com.martamazurkozlowska.superapp.app.stepscounter.home.StepsConverterResolver
 import com.martamazurkozlowska.superapp.app.stepscounter.journal.JournalViewModel
 import com.martamazurkozlowska.superapp.app.stepscounter.navigation.NavigationViewModel
 import com.martamazurkozlowska.superapp.app.stepscounter.profile.ProfileViewModel
 import com.martamazurkozlowska.superapp.app.test.TestViewModel
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 val appModule = module {
-    viewModelOf(::MainScreenViewModel)
     viewModelOf(::NavigationViewModel)
     viewModelOf(::HomeViewModel)
     viewModelOf(::JournalViewModel)
@@ -35,7 +34,8 @@ val appModule = module {
     viewModelOf(::NutriPulseJournalViewModel)
     viewModelOf(::NutriPulseProfileViewModel)
     viewModelOf(::IngredientsLibraryViewModel)
-    viewModelOf(::MainViewModel)
     viewModelOf(::AlbumListViewModel)
     viewModelOf(::PhotoListViewModel)
+
+    factoryOf(::StepsConverterResolver)
 }
