@@ -18,6 +18,7 @@ class HomeViewModel(
     private val genderRepository: GenderRepository,
     private val personalGoalRepository: PersonalGoalRepository,
     private val weightRepository: WeightRepository,
+    private val resolver: StepsConverterResolver,
 ) : ViewModel() {
 
     private val totalSteps: MutableStateFlow<Int> = MutableStateFlow(0)
@@ -76,17 +77,11 @@ class HomeViewModel(
                 weightFlow,
                 personalGoalFlow,
             ) { totalSteps, gender, weight, personalGoal ->
-                kilometers.value = getKilometersSum(totalSteps = totalSteps, gender = gender)
+                kilometers.value = resolver.getKilometersSum(totalSteps = totalSteps, gender = gender)
                 caloriesSum.value = getCaloriesSum(kilometers = kilometers.value, weight = weight)
                 stepsGoal.value = getStepsGoal(kilosGoal = personalGoal, weight = weight)
             }.collect {}
         }
-    }
-
-    private fun getKilometersSum(totalSteps: Int, gender: GenderUiModel): Float {
-        val stepLength = if (gender == GenderUiModel.Female) 66 else 80
-        val totalKilometers = totalSteps * stepLength * 0.00001f
-        return round(totalKilometers * 100.0f) / 100.0f
     }
 
     private fun getCaloriesSum(kilometers: Float, weight: Float): Float {
@@ -100,7 +95,7 @@ class HomeViewModel(
             in 60.0f..70.0f -> 325
             in 70.0f..80.0f -> 375
             in 80.0f..90.0f -> 425
-            else  -> 500
+            else            -> 500
         }
         val caloriesGoal = kilosGoal * 7700
         val result = caloriesGoal / caloriesBurntAccordingToKilos * 10000
