@@ -11,14 +11,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
-import kotlin.math.round
 
 class HomeViewModel(
     private val repository: StepsListRepository,
     private val genderRepository: GenderRepository,
     private val personalGoalRepository: PersonalGoalRepository,
     private val weightRepository: WeightRepository,
-    private val resolver: StepsConverterResolver,
+    private val stepsCounterResolver: StepsConverterResolver,
+    private val caloriesResolver: CaloriesResolver,
 ) : ViewModel() {
 
     private val totalSteps: MutableStateFlow<Int> = MutableStateFlow(0)
@@ -77,16 +77,11 @@ class HomeViewModel(
                 weightFlow,
                 personalGoalFlow,
             ) { totalSteps, gender, weight, personalGoal ->
-                kilometers.value = resolver.getKilometersSum(totalSteps = totalSteps, gender = gender)
-                caloriesSum.value = getCaloriesSum(kilometers = kilometers.value, weight = weight)
+                kilometers.value = stepsCounterResolver.getKilometersSum(totalSteps = totalSteps, gender = gender)
+                caloriesSum.value = caloriesResolver.getCaloriesSum(kilometers = kilometers.value, weight = weight)
                 stepsGoal.value = getStepsGoal(kilosGoal = personalGoal, weight = weight)
             }.collect {}
         }
-    }
-
-    private fun getCaloriesSum(kilometers: Float, weight: Float): Float {
-        val timeInMinutes = kilometers * 12f
-        return round(3.5f * 3.5f * weight * timeInMinutes / 200 * 10.0f) / 10.0f
     }
 
     private fun getStepsGoal(kilosGoal: Float, weight: Float): Int {
@@ -101,5 +96,4 @@ class HomeViewModel(
         val result = caloriesGoal / caloriesBurntAccordingToKilos * 10000
         return result.toInt()
     }
-
 }

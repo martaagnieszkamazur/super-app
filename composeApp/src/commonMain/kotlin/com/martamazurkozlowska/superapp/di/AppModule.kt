@@ -10,6 +10,7 @@ import com.martamazurkozlowska.superapp.app.nutripulse.journal.NutriPulseJournal
 import com.martamazurkozlowska.superapp.app.nutripulse.navigation.NutriPulseNavigationViewModel
 import com.martamazurkozlowska.superapp.app.nutripulse.profile.NutriPulseProfileViewModel
 import com.martamazurkozlowska.superapp.app.stepscounter.addsteps.AddStepsViewModel
+import com.martamazurkozlowska.superapp.app.stepscounter.home.CaloriesResolver
 import com.martamazurkozlowska.superapp.app.stepscounter.home.HomeViewModel
 import com.martamazurkozlowska.superapp.app.stepscounter.home.StepsConverterResolver
 import com.martamazurkozlowska.superapp.app.stepscounter.journal.JournalViewModel
@@ -17,6 +18,7 @@ import com.martamazurkozlowska.superapp.app.stepscounter.navigation.NavigationVi
 import com.martamazurkozlowska.superapp.app.stepscounter.profile.ProfileViewModel
 import com.martamazurkozlowska.superapp.app.test.TestViewModel
 import org.koin.core.module.dsl.factoryOf
+import org.koin.core.module.dsl.viewModel
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
@@ -38,4 +40,5 @@ val appModule = module {
     viewModelOf(::PhotoListViewModel)
 
     factoryOf(::StepsConverterResolver)
+    factoryOf(::CaloriesResolver)
 }
